@@ -33,31 +33,19 @@ function TesteTemp() {
     const [open3, setOpen3] = useState(false)
     const [open4, setOpen4] = useState(false)
 
-    // useEffect(() => {
-    //     if (time === 0 && val === 0) {
-    //         // mover()
-    //         history("/resultado")
-    //         dispatch(resultAct(resultado))
-    //     } else if (time === 0 && val === 1) {
-    //     } else {
-    //         setTimeout(() => { setTime(time - 1) }, 1000)
-    //     }
-    // }, [time]);
-
     useEffect(() => {
         if (time === 0 && val === 0) {
-          // mover()
-          history("/resultado")
-          dispatch(resultAct(resultado))
+            // mover()
+            history("/resultado")
+            dispatch(resultAct(resultado))
         } else if (time === 0 && val === 1) {
-          // Do something else if needed
+            // Do something else if needed
         } else {
-          setTimeout(() => {
-            setTime(time - 1)
-          }, 1000)
+            setTimeout(() => {
+                setTime(time - 1)
+            }, 1000)
         }
-      }, [time, val, resultado, history, dispatch]);
-      
+    }, [time, val, resultado, history, dispatch]);
 
     function calcular(a, b, c, d) {
         const letras = ['Sanguíneo', 'Colérico', 'Melancólico', 'Fleumático'];
@@ -106,11 +94,6 @@ function TesteTemp() {
 
     }
 
-    // function mover() {
-    //     history("/resultado")
-    //     dispatch(resultAct(resultado))
-    // }
-
     function altera(i, lists) {
         lists.forEach((list) => {
             list[i].isClicked = true;
@@ -148,6 +131,10 @@ function TesteTemp() {
         setOpen2(false)
         setOpen3(false)
         setOpen4(false)
+    }
+
+    const recarregar = () => {
+        window.location.reload()
     }
 
     const handleCalcularClick = () => {
@@ -190,6 +177,12 @@ function TesteTemp() {
                                     </td>
                                 </tr>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                         <br />
                     </div>
@@ -201,7 +194,13 @@ function TesteTemp() {
     return (
         <div>
             <header className={valor !== 27 ? "aparece" : "desaparece"}>
-                <p className="instrucoes">Selecione uma palavra dentre as 4 listadas abaixo</p> <br /><br /><br /><br />
+                <p className="instrucoes">Selecione uma palavra dentre as 4 listadas abaixo</p>
+                <div className='rodape-pagina'>
+                    <p>{valor + 1}/27</p>
+                    <Button variant="contained" size="large" sx={{ fontSize: 20 }} onClick={recarregar} type="submit">
+                        Recomeçar
+                    </Button>
+                </div>
             </header>
             {valor === 27 ? (
                 <div>
@@ -225,6 +224,8 @@ function TesteTemp() {
                     <ListaDeBotoes lista={list2} clicouHandler={(parametro, i) => clicou(parametro, i, [list1, list2, list3, list4], setA, setB, setC, setD, setValor, a, b, c, d, valor)} parametro={2} />
                     <ListaDeBotoes lista={list3} clicouHandler={(parametro, i) => clicou(parametro, i, [list1, list2, list3, list4], setA, setB, setC, setD, setValor, a, b, c, d, valor)} parametro={3} />
                     <ListaDeBotoes lista={list4} clicouHandler={(parametro, i) => clicou(parametro, i, [list1, list2, list3, list4], setA, setB, setC, setD, setValor, a, b, c, d, valor)} parametro={4} />
+
+
 
                 </>
             )}

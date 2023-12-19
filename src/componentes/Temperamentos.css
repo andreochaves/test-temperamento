@@ -1,0 +1,18 @@
+/* MeuComponente.css */
+
+.meu-componente {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: justify;
+  }
+  
+  .meu-componente p {
+    margin-bottom: 10px;
+  }
+  
+  .meu-componente strong {
+    font-weight: bold;
+    color: #eb2020; /* Cor azul, ajuste conforme necessário */
+    
+  }
+  

@@ -2,6 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { resultAct } from "../redux/result/actions"
 import { useState } from 'react';
 import { Button } from "@mui/material";
+import Sanguineos from "../componentes/Sanguineos"
+import Colericos from "../componentes/Colericos"
+import Melancolicos from "../componentes/Melancolicos"
+import Fleumaticos from "../componentes/Fleumaticos"
 
 function Resultado() {
 
@@ -9,29 +13,11 @@ function Resultado() {
     const { result } = useSelector((rootReducer) => rootReducer.resulReducer)
     const [val, setVal] = useState('')
    
-   //-------------------------------------------------------------------------------------------------------------------------------------------------
-    let sanguineos=" Este temperamento é expansivo, otimista e impulsivo. "+
-    "Extrovertidos e sensíveis, os sanguíneos são indivíduos que não passam desapercebidos, "+
-    "pois são espontâneos e gostam de interagir. Além disso, costumam fazer gestos largos e falar bem em público. "+
-    "Pontos fortes: são comunicativos, resilientes, adaptáveis e entusiastas. "+
-    "Pontos que precisam ser trabalhados: impulsividade, falta de atenção, superficialidade e exagero."
-   //-------------------------------------------------------------------------------------------------------------------------------------------------
-    let colericos = "Este temperamento é explosivo, ambicioso e dominador. "+
-    " Indivíduos coléricos são determinados e possuem grande capacidade de planejamento, além de muita energia e impulsividade. "+ 
-    "Pontos fortes: determinação, habilidade de liderança e praticidade. "+
-    "Pontos que precisam ser trabalhados: egocentrismo, intolerância e impaciência."
-   //-------------------------------------------------------------------------------------------------------------------------------------------------
-    let melancolicos ="Este temperamento é tímido, artístico e solitário. "+
-    "Os melancólicos têm a sensibilidade muito aflorada e são pessoas profundas, detalhistas e introvertidas, com certa dificuldade em expôr seus sentimentos. "+
-    "São fiéis, desconfiados e tendem a escolher profissões que possam exercer sozinhos. "+ 
-    "Pontos fortes: lealdade, dedicação e sensibilidade. "+
-    "Pontos que precisam ser trabalhados: egoísmo, pessimismo e inflexibilidade."
-   //--------------------------------------------------------------------------------------------------------------------------------------------
-    let fleumaticos="Este temperamento é sonhador, pacífico, dócil. "+
-    "Os fleumáticos prezam a rotina, o silêncio e dificilmente perdem o controle, pois costumam avaliar toda a situação antes de reagir. "+
-    "Pacientes, observadores e disciplinados, preferem não manifestar suas opiniões em público e não costumam reagir bem às críticas. "+
-    "Pontos fortes: são equilibrados e confiáveis. "+
-    "Pontos que precisam ser trabalhados: lentidão, resistência às mudanças e indecisão."
+    let sanguineos= Sanguineos
+    let colericos =Colericos
+    let melancolicos =Melancolicos
+    let fleumaticos=Fleumaticos
+
     const temps = [
         sanguineos,
         colericos,
@@ -55,7 +41,7 @@ function Resultado() {
         } else if (result === temp2[3]) {
             setVal(temps[3])
         } else {
-            setVal(`voce é algo ${temps[2]}`)
+            setVal(`Houve um empate`)
         }
     }
 
@@ -69,7 +55,7 @@ function Resultado() {
                 <tbody>
                     <tr >
                         <td>
-                            <p onChange={() => { carregar() }}>O seu temperamento é do tipo {result}</p>
+                            <p className='resultado' onChange={() => { carregar() }}>O seu temperamento é do tipo {result}</p>
                         </td>
                     </tr>
                     <tr >

@@ -57,20 +57,33 @@ button {
   display: none;
 }
 
-.aparece{
+.aparece {
   align-items: center;
 }
 
-p{
+.duvida {
   font-size: 18px;
   font-weight: bold;
 }
 
-.duvida{
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.instrucoes{
+.instrucoes {
   font-size: 26px;
+  font-weight: bold;
+}
+
+.rodape-pagina {
+  display: flex;
+  justify-content: right;
+  margin: 20px;
+}
+
+.rodape-pagina p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.resultado{
+  font-size: 18px;
+  font-weight: bold;
 }
