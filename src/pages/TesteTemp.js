@@ -33,17 +33,34 @@ function TesteTemp() {
     const [open3, setOpen3] = useState(false)
     const [open4, setOpen4] = useState(false)
 
+    // useEffect(() => {
+    //     if (time === 0 && val === 0) {
+    //         // mover()
+    //         history("/resultado")
+    //         dispatch(resultAct(resultado))
+    //     } else if (time === 0 && val === 1) {
+    //     } else {
+    //         setTimeout(() => { setTime(time - 1) }, 1000)
+    //     }
+    // }, [time]);
+
     useEffect(() => {
         if (time === 0 && val === 0) {
-           mover()
+          // mover()
+          history("/resultado")
+          dispatch(resultAct(resultado))
         } else if (time === 0 && val === 1) {
+          // Do something else if needed
         } else {
-            setTimeout(() => { setTime(time - 1) }, 1000)
+          setTimeout(() => {
+            setTime(time - 1)
+          }, 1000)
         }
-    }, [time]);
-    
+      }, [time, val, resultado, history, dispatch]);
+      
+
     function calcular(a, b, c, d) {
-        const letras = ['Sanguíneo','Colérico', 'Melancólico', 'Fleumático'];
+        const letras = ['Sanguíneo', 'Colérico', 'Melancólico', 'Fleumático'];
         const valores = [a, b, c, d];
 
         const maxValor = Math.max(...valores);
@@ -89,10 +106,10 @@ function TesteTemp() {
 
     }
 
-    function mover(){
-        history("/resultado")
-        dispatch(resultAct(resultado))
-    }
+    // function mover() {
+    //     history("/resultado")
+    //     dispatch(resultAct(resultado))
+    // }
 
     function altera(i, lists) {
         lists.forEach((list) => {
@@ -144,40 +161,40 @@ function TesteTemp() {
         const opens = [open1, open2, open3, open4]
         return (
             <div>
-            {lista.map((item, index) => (
-                <div key={index} className={!item.isClicked ? "aparece" : "desaparece"}>
-                    <table align='center' width='550px'>
-                        <tbody>
-                            <tr >
-                                <td>
-                                    <Button
-                                        variant="contained"
-                                        sx={{ fontSize: 30, width: '500px' }}
-                                        size="large"
-                                        onClick={() => clicouHandler(parametro, index)}
-                                        type="submit"
-                                    >
-                                        {item.name}
-                                    </Button>
-                                </td>
-                                <td className={opens[parametro - 1] === false ? 'aparece' : 'desaparece'}>
-                                    <QuestionMarkSharpIcon color='info' onClick={() => { verEx(parametro, index) }} />
-                                </td>
-                                <td className={opens[parametro - 1] === true ? 'aparece' : 'desaparece'}>
-                                    <ClearSharpIcon color='error' onClick={() => { verEx(parametro, index) }} />
-                                </td>
-                            </tr>
-                            <tr className={par === parametro && opens[parametro - 1] === true ? 'aparece' : 'desaparece'}>
-                                <td className='duvida'>
-                                    {ind}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br />
-                </div>
-            ))}
-        </div>
+                {lista.map((item, index) => (
+                    <div key={index} className={!item.isClicked ? "aparece" : "desaparece"}>
+                        <table align='center' width='550px'>
+                            <tbody>
+                                <tr >
+                                    <td>
+                                        <Button
+                                            variant="contained"
+                                            sx={{ fontSize: 30, width: '500px' }}
+                                            size="large"
+                                            onClick={() => clicouHandler(parametro, index)}
+                                            type="submit"
+                                        >
+                                            {item.name}
+                                        </Button>
+                                    </td>
+                                    <td className={opens[parametro - 1] === false ? 'aparece' : 'desaparece'}>
+                                        <QuestionMarkSharpIcon color='info' onClick={() => { verEx(parametro, index) }} />
+                                    </td>
+                                    <td className={opens[parametro - 1] === true ? 'aparece' : 'desaparece'}>
+                                        <ClearSharpIcon color='error' onClick={() => { verEx(parametro, index) }} />
+                                    </td>
+                                </tr>
+                                <tr className={par === parametro && opens[parametro - 1] === true ? 'aparece' : 'desaparece'}>
+                                    <td className='duvida'>
+                                        {ind}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                    </div>
+                ))}
+            </div>
         );
     }
 
@@ -189,16 +206,16 @@ function TesteTemp() {
             {valor === 27 ? (
                 <div>
                     <div className={val === 1 ? "aparece" : "desaparece"}>
-                      
-                    <br /><br /><br /><br />
-                      <Button variant="contained" size="large" sx={{ fontSize: 30 }} type="submit" onClick={handleCalcularClick}>
+
+                        <br /><br /><br /><br />
+                        <Button variant="contained" size="large" sx={{ fontSize: 30 }} type="submit" onClick={handleCalcularClick}>
                             Ver Resultado
                         </Button>
                     </div>
                     <div className={val === 0 ? "aparece" : "desaparece"} >
-                    <br /><br /><br /><br />
+                        <br /><br /><br /><br />
                         <Button variant="contained" size="large" disabled sx={{ fontSize: 30 }} type="submit">
-                        Ver Resultado
+                            Ver Resultado
                         </Button>
                     </div>
                 </div>
