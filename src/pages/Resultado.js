@@ -10,7 +10,7 @@ function Resultado() {
     const [val, setVal] = useState('')
    
    //-------------------------------------------------------------------------------------------------------------------------------------------------
-    let sanguineos="Este temperamento é expansivo, otimista e impulsivo. "+
+    let sanguineos=" Este temperamento é expansivo, otimista e impulsivo. "+
     "Extrovertidos e sensíveis, os sanguíneos são indivíduos que não passam desapercebidos, "+
     "pois são espontâneos e gostam de interagir. Além disso, costumam fazer gestos largos e falar bem em público. "+
     "Pontos fortes: são comunicativos, resilientes, adaptáveis e entusiastas. "+
